@@ -1,0 +1,4 @@
+name: DataProvider
+version: 0.1
+api: 3.2
+main: VectorNetworkProject\Main
