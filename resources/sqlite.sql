@@ -4,7 +4,7 @@
 -- #    { init
 CREATE TABLE IF NOT EXISTS accounts(
   id   INTEGER PRIMARY KEY AUTOINCREMENT,
-  name TEXT NOT NULL
+  name TEXT PRIMARY KEY
 );
 -- #    }
 -- #    { register
@@ -120,7 +120,7 @@ WHERE id IN (
 );
 -- #    }
 -- #    { addCount
--- #      :id int
+-- #      :name string
 -- #      :kill int
 -- #      :death int
 -- #      :win int
@@ -136,6 +136,7 @@ WHERE id IN (
   INNER JOIN accounts ON (
     accounts.id = ffapvp.id
   )
+  WHERE accounts.name = :name
 );
 -- #    }
 -- #    }
