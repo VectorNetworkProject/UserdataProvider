@@ -1,5 +1,5 @@
 -- #!sqlite
--- #{userdataprovider
+-- #{ userdataprovider
 -- #  { accounts
 -- #    { init
 CREATE TABLE IF NOT EXISTS accounts(
@@ -21,7 +21,6 @@ DELETE FROM accounts
 WHERE id = :id;
 -- #    }
 -- #  }
---FFAPvP
 -- #  { ffapvp
 -- #    { init
 CREATE TABLE IF NOT EXISTS ffapvp(
