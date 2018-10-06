@@ -1,4 +1,4 @@
--- #! !sqlite
+-- #!!sqlite
 -- #{userdataprovider
 -- #  { accounts
 -- #    { init
