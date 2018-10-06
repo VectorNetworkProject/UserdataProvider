@@ -43,7 +43,7 @@ INSERT INTO ffapvp(
 DELETE FROM ffapvp
 WHERE id = :id;
 -- #    }
--- #    { addCount
+-- #    { addcount
 -- #      :kill int
 -- #      :death int
 -- #      :exp int
@@ -52,7 +52,7 @@ SET kill = kill + :kill,
     death = death + :death,
     exp = exp + :exp;
 -- #    }
--- #    { getRankingByExp
+-- #    { getrankingbyExp
 -- #      :limit int
 SELECT accounts.name, accounts.id, ffapvp.kill, ffapvp.death, ffapvp.exp
 FROM ffapvp
@@ -61,14 +61,14 @@ ON ffapvp.id = accounts.id
 LIMIT :limit
 ORDER BY exp DESC;
 -- #    }
--- #    { getRankingByKill
+-- #    { getrankingbykill
 -- #      :limit int
 SELECT accounts.name, accounts.id, ffapvp.kill, ffapvp.death, ffapvp.exp
 FROM ffapvp
 INNER JOIN accounts
 ON ffapvp.id = accounts.id
 limit :limit
-ORDER BY kill ASC;
+ORDER BY kill DESC;
 -- #    }
 -- #  }
 -- #  { duel
