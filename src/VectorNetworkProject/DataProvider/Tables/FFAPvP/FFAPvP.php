@@ -9,7 +9,6 @@
 namespace VectorNetworkProject\DataProvider\Tables\FFAPvP;
 
 use pocketmine\IPlayer;
-use VectorNetworkProject\DataProvider\Tables\Queries;
 use VectorNetworkProject\DataProvider\Tables\TableBase;
 
 class FFAPvP extends TableBase
