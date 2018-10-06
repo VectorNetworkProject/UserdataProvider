@@ -72,11 +72,21 @@ class FFAPvP extends TableBase
 		$this->add($player, $kill);
 	}
 
+	/**
+	 * デスカウントを増やします
+	 * @param IPlayer $player
+	 * @param int $death
+	 */
 	public function addDeath(IPlayer $player, int $death)
 	{
 		$this->add($player, 0, $death);
 	}
 
+	/**
+	 * EXPカウントを増やします
+	 * @param IPlayer $player
+	 * @param int $exp
+	 */
 	public function addExp(IPlayer $player,int $exp)
 	{
 		$this->add($player, 0, 0, $exp);
