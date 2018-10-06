@@ -16,9 +16,9 @@ INSERT INTO accounts(
 );
 -- #    }
 -- #    { unregister
--- #      :id int
+-- #      :name string
 DELETE FROM accounts
-WHERE id = :id;
+WHERE id = :name;
 -- #    }
 -- #  }
 -- #  { ffapvp
@@ -31,17 +31,25 @@ CREATE TABLE IF NOT EXISTS ffapvp(
 );
 -- #    }
 -- #    { register
--- #      :id int
+-- #      :name string
 INSERT INTO ffapvp(
   id
-) VALUES (
-  :id
-);
+)
+SELECT id
+FROM accounts
+WHERE name = :name;
 -- #    }
 -- #    { unregister
 -- #      :id int
 DELETE FROM ffapvp
-WHERE id = :id;
+WHERE id
+IN (
+  SELECT id
+  FROM dual
+  INNER JOIN accounts
+  ON dual.id = accounts.id
+  WHERE accounts.name = :name
+);
 -- #    }
 -- #    { addcount
 -- #      :kill int
@@ -82,17 +90,24 @@ CREATE TABLE IF NOT EXISTS dual(
 );
 -- #    }
 -- #    { register
--- #      :id int
+-- #      :name string
 INSERT INTO dual(
   id
-) VALUES (
-  :id
-);
+)
+SELECT id
+FROM accounts
+WHERE name = :name;;
 -- #    }
 -- #    { unregister
--- #      :id int
+-- #      :name string
 DELETE FROM dual
-WHERE id = :id;
+WHERE id IN (
+  SELECT id
+  FROM dual
+  INNER JOIN accounts
+  ON dual.id = accounts.id
+  WHERE accounts.name = :name
+);
 -- #    }
 -- #    { addCount
 -- #      :id int
