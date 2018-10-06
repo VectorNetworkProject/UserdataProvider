@@ -14,6 +14,11 @@ use VectorNetworkProject\DataProvider\Tables\TableBase;
 
 class Accounts extends TableBase
 {
+	public const ACCOUNT_INIT = 'userdataprovider.accounts.init';
+	public const ACCOUNT_REGISTER = 'userdataprovider.accounts.register';
+	public const ACCOUNT_UNREGISTER = 'userdataprovider.accounts.unregister';
+	public const ACCOUNT_GET = 'userdataprovider.accounts.get';
+
 	public function register(IPlayer $player, ?callable $handler = null, ?callable $errorHandler = null)
 	{
 		$this->connector->executeInsert(Queries::ACCOUNT_REGISTER, [$player->getName()], $handler, $errorHandler);
