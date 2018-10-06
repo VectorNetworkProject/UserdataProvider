@@ -11,14 +11,13 @@ namespace VectorNetworkProject\DataProvider;
 
 use pocketmine\plugin\PluginBase;
 use poggit\libasynql\libasynql;
-use VectorNetworkProject\DataProvider\Tables\Accounts\Accounts;
+use VectorNetworkProject\DataProvider\Tables\TableManager;
 
 class Main extends PluginBase
 {
-	/**
-	 * @var Accounts
-	 */
-	private $accouts;
+
+	/** @var TableManager */
+	private $manager;
 	public function onEnable()
 	{
 		$this->saveDefaultConfig();
@@ -26,6 +25,6 @@ class Main extends PluginBase
 			"sqlite" => "sqlite.sql",
 			"mysql" => "mysql.sql"
 		]);
-		$this->accounts = new Accounts($database);
+		$this->manager = new TableManager($database);
 	}
 }

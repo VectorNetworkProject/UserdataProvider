@@ -15,7 +15,7 @@ abstract class TableBase
 {
 	/** @var DataConnectorImpl */
 	protected $connector;
-	public final function construct(DataConnectorImpl $connector)
+	public final function __construct(DataConnectorImpl $connector)
 	{
 		$this->connector = $connector;
 	}
