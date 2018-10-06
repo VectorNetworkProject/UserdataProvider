@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS accounts(
 -- #  }
 -- #  { register
 -- #    :name string
-INSERT OR REPLACE INTO accounts(
+INSERT INTO accounts(
   name
 ) VALUES (
   :name
@@ -21,16 +21,26 @@ CREATE TABLE IF NOT EXISTS ffapvp(
   id INTEGER NOT NULL,
   kill INTEGER NOT NULL DEFAULT 0,
   death INTEGER NOT NULL DEFAULT 0,
-  exp INTEGER NOT NULL DEFAULT 0,
-  level INTEGER NOT NULL DEFAULT 0
+  exp INTEGER NOT NULL DEFAULT 0
 );
 -- #  }
 -- #  { register
 -- #    :id int
-INSERT OR REPLACE INTO ffapvp(
+INSERT INTO ffapvp(
   id
 ) VALUES (
   :id
 );
+-- #  }
+-- #  { addCount
+-- #    :kill int
+-- #    :death int
+-- #    :exp int
+UPDATE ffapvp
+SET kill = kill + :kill,
+    death = death + :death,
+    exp = exp + :exp
+-- #  }
+-- #  {
 -- #  }
 -- #}
