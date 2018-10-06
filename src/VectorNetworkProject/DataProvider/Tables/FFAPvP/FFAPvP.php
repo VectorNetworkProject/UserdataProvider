@@ -47,7 +47,7 @@ class FFAPvP extends TableBase
 	 */
 	public function unregister(IPLayer $player, ?callable $onSuccess = null, ?callable $onError = null): void
 	{
-		$this->connector->executeChange(self::FFAPVP_UNREGISTER, $onSuccess, $onError );
+		$this->connector->executeChange(self::FFAPVP_UNREGISTER, [$player->getName()], $onSuccess, $onError );
 	}
 
 	/**
@@ -59,7 +59,7 @@ class FFAPvP extends TableBase
 	 */
 	public function getRankingByKill(int $limit, ?callable $onSelect = null, ?callable $onError = null): void
 	{
-		$this->connector->executeSelect(self::FFAPVP_GET_RANKING_BY_KILL);
+		$this->connector->executeSelect(self::FFAPVP_GET_RANKING_BY_KILL, [$limit], $onSelect, $onError);
 	}
 
 	/**
@@ -71,6 +71,6 @@ class FFAPvP extends TableBase
 	 */
 	public function getRankingByExp(int $limit, ?callable $onSelect = null, ?callable $onError = null): void
 	{
-		$this->connector->executeSelect(self::FFAPVP_GET_RANKING_BY_EXP);
+		$this->connector->executeSelect(self::FFAPVP_GET_RANKING_BY_EXP, [$limit], $onSelect, $onError);
 	}
 }
