@@ -44,7 +44,7 @@ WHERE name = :name;
 DELETE FROM ffapvp
 WHERE id
 IN (
-  SELECT id
+  SELECT accounts.id
   FROM dual
   INNER JOIN accounts
   ON dual.id = accounts.id
@@ -102,7 +102,7 @@ WHERE name = :name;;
 -- #      :name string
 DELETE FROM dual
 WHERE id IN (
-  SELECT id
+  SELECT accounts.id
   FROM dual
   INNER JOIN accounts
   ON dual.id = accounts.id
