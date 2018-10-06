@@ -33,7 +33,7 @@ class Dual extends TableBase
 
 	}
 
-	public function addCount(int $kill, int $death, int $win, int $lose, callable $onSelect, ?callable $onError = null): void
+	public function addCount(IPlayer $player, int $kill, int $death, int $win, int $lose, callable $onSelect, ?callable $onError = null): void
 	{
 
 	}

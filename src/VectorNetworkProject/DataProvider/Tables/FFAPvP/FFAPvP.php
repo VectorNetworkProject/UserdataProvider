@@ -49,6 +49,8 @@ class FFAPvP extends TableBase
 		$this->connector->executeChange(self::FFAPVP_UNREGISTER, [$player->getName()], $onSuccess, $onError );
 	}
 
+	public function addCount(IPlayer $player, )
+
 	/**
 	 * キル数のランキングを取得します
 	 *
