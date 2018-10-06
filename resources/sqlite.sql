@@ -40,7 +40,7 @@ FROM accounts
 WHERE name = :name;
 -- #    }
 -- #    { unregister
--- #      :id int
+-- #      :name string
 DELETE FROM ffapvp
 WHERE id
 IN (
@@ -52,13 +52,22 @@ IN (
 );
 -- #    }
 -- #    { addcount
+-- #      :name string
 -- #      :kill int
 -- #      :death int
 -- #      :exp int
 UPDATE ffapvp
 SET kill = kill + :kill,
     death = death + :death,
-    exp = exp + :exp;
+    exp = exp + :exp
+WHERE id IN (
+  SELECT ffapvp.id
+  FROM ffapvp
+  INNER JOIN accounts
+  ON(
+    accounts.id = ffapvp.id
+  )
+);
 -- #    }
 -- #    { getrankingbyExp
 -- #      :limit int
@@ -119,7 +128,14 @@ UPDATE dual
 SET kill = kill + :kill,
     death = death + :death,
     win = win + :win,
-    lose = lose + :lose;
+    lose = lose + :lose
+WHERE id IN (
+  SELECT ffapvp.id
+  FROM ffapvp
+  INNER JOIN accounts ON (
+    accounts.id = ffapvp.id
+  )
+);
 -- #    }
 -- #    }
 -- #    { getranking
