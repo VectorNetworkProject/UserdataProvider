@@ -8,27 +8,27 @@
 
 namespace VectorNetworkProject\DataProvider\Tables\Accounts;
 
-
-use poggit\libasynql\base\DataConnectorImpl;
 use pocketmine\IPlayer;
+use VectorNetworkProject\DataProvider\Tables\TableBase;
 
-class Accounts
+class Accounts extends TableBase
 {
-	public const INIT = '';
-	/** @var DataConnectorImpl */
-	private $connector;
-	public function __construct(DataConnectorImpl $dc)
+	public const INIT = 'userdataprovider.accounts.register';
+	public const REGISTER = 'userdataprovider.accounts.unregister';
+	public const UNREGISTER = 'userdataprovider.accounts.unregister';
+	public const GET = 'userdataprovider.accounts.get';
+
+	public function register(IPlayer $player, ?callable $handler = null, ?callable $errorHandler = null)
 	{
-		$this->connector = $dc;
+		$this->connector->executeInsert(self::REGISTER, [$player->getName()], $handler, $errorHandler);
 	}
 
-	public function register(IPlayer $player, ?callable $handler = null)
+	public function unregister(IPlayer $player, ?callable $handler = null, ?callable $errorHandler = null)
 	{
-		$this->connector->executeInsert('userdataprovider.accounts.register', [$player->getName()], $handler);
+		$this->connector->executeChange(self::UNREGISTER, [$player->getName()], $handler, $errorHandler);
 	}
 
-	public function unregister(IPlayer $player, ?callable $handler = null)
-	{
-		$this->connector->executeChange('userdataprovider.accounts.unregister', [$player->getName()], $handler);
+	public function get(IPlayer $player, ?callable $handler = null, ?callable $errorHandler = null){
+		$this->connector->executeSelect(self::GET, [$player->getName()], $handler, $errorHandler);
 	}
 }
