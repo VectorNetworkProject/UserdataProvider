@@ -3,7 +3,8 @@
 
 データを格納するためのプラグイン
 
-##使い方  
+##使い方
+
     public function onEnable()
     {
         $this->accounts = $this->getServer()->getPluginManager()->getPlugin('UserdataProvider')->getManager()->getAccounts();
