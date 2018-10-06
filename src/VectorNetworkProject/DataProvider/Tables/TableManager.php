@@ -45,7 +45,7 @@ class TableManager
 	/**
 	 * @return FFAPvP
 	 */
-	public function getFfapvp(): FFAPvP
+	public function getFFAPvP(): FFAPvP
 	{
 		return $this->ffapvp;
 	}
