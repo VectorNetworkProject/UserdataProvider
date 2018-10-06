@@ -139,7 +139,6 @@ WHERE id IN (
   WHERE accounts.name = :name
 );
 -- #    }
--- #    }
 -- #    { getranking
 -- #      :limit int
 SELECT accounts.name, accounts.id, dual.kill
