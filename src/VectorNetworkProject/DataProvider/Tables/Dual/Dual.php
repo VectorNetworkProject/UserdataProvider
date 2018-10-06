@@ -55,11 +55,61 @@ class Dual extends TableBase
 		$this->connector->executeSelect(self::GET, [$player->getName()], $onSelect, $onError);
 	}
 
-	public function addCount(IPlayer $player, int $kill, int $death, int $win, int $lose, callable $onSelect, ?callable $onError = null): void
+	/**
+	 * @param IPlayer $player
+	 * @param int $kill
+	 * @param int $death
+	 * @param int $win
+	 * @param int $lose
+	 * @param callable|null $onSelect
+	 * @param callable|null $onError
+	 */
+	public function add(IPlayer $player, int $kill = 0, int $death = 0, int $win = 0, int $lose = 0, ?callable $onSelect = null, ?callable $onError = null): void
 	{
 		$this->connector->executeChange(self::ADD_COUNT, [$player->getName(), $kill, $death, $win, $lose], $onSelect, $onError);
 	}
 
+	/**
+	 * @param IPlayer $player
+	 * @param int $kill
+	 */
+	public function addKill(IPlayer $player, int $kill): void
+	{
+		$this->add($player, $kill);
+	}
+
+	/**
+	 * @param IPlayer $player
+	 * @param int $death
+	 */
+	public function addDeath(IPlayer $player, int $death): void
+	{
+		$this->add($player, 0, $death);
+	}
+
+	/**
+	 * @param IPlayer $player
+	 * @param int $win
+	 */
+	public function addWin(IPlayer $player, int $win): void
+	{
+		$this->add($player, 0, 0, $win);
+	}
+
+	/**
+	 * @param IPlayer $player
+	 * @param int $lose
+	 */
+	public function addLose(IPlayer $player, int $lose): void
+	{
+		$this->add($player, 0, 0, 0, $lose);
+	}
+
+	/**
+	 * @param int $limit
+	 * @param callable $onSelect
+	 * @param callable|null $onError
+	 */
 	public function getRanking(int $limit, callable $onSelect, ?callable $onError = null): void
 	{
 		$this->connector->executeSelect(self::GET_RANKING, [$limit], $onSelect, $onError);
