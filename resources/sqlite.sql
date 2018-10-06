@@ -68,7 +68,53 @@ FROM ffapvp
 INNER JOIN accounts
 ON ffapvp.id = accounts.id
 limit :limit
-ORDER BY kill ASC
+ORDER BY kill ASC;
+-- #    }
+-- #  }
+-- #  { duel
+-- #    { init
+CREATE TABLE IF NOT EXISTS dual(
+  id INTEGER NOT NULL,
+  kill INTEGER NOT NULL DEFAULT 0,
+  death INTEGER NOT NULL DEFAULT 0,
+  win INTEGER NOT NULL DEFAULT 0,
+  lose INTEGER NOT NULL DEFAULT 0
+);
+-- #    }
+-- #    { register
+-- #      :id int
+INSERT INTO dual(
+  id
+) VALUES (
+  :id
+);
+-- #    }
+-- #    { unregister
+-- #      :id int
+DELETE FROM dual
+WHERE id = :id;
+-- #    }
+-- #    { addCount
+-- #      :id int
+-- #      :kill int
+-- #      :death int
+-- #      :win int
+-- #      :lose int
+UPDATE dual
+SET kill = kill + :kill,
+    death = death + :death,
+    win = win + :win,
+    lose = lose + :lose;
+-- #    }
+-- #    }
+-- #    { getranking
+-- #      :limit int
+SELECT accounts.name, accounts.id, dual.kill
+FROM dual
+INNER JOIN accounts
+ON dual.id = accounts.id
+limit :limit
+ORDER BY kill DESC;
 -- #    }
 -- #  }
 -- #}
