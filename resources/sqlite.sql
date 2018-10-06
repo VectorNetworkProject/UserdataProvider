@@ -67,6 +67,7 @@ WHERE id IN (
   ON(
     accounts.id = ffapvp.id
   )
+  WHERE accounts.name = :name
 );
 -- #    }
 -- #    { getrankingbyExp
@@ -105,7 +106,7 @@ INSERT INTO dual(
 )
 SELECT id
 FROM accounts
-WHERE name = :name;;
+WHERE name = :name;
 -- #    }
 -- #    { unregister
 -- #      :name string
