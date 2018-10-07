@@ -42,11 +42,31 @@ class CorePvP extends TableBase
 	 * @param callable $onSuccess
 	 * @param callable|null $onError
 	 */
-	public function unregister(IPlayer $player, callable $onSuccess, ?callable $onError): void
+	public function unregister(IPlayer $player, callable $onSuccess, ?callable $onError = null): void
 	{
 		$this->connector->executeInsert(self::UNREGISTER, [$player->getname()], $onSuccess, $onError);
 	}
 
+	/**
+	 * @param IPlayer $player
+	 * @param callable $onSuccess
+	 * @param callable|null $onError
+	 */
+	public function get(IPlayer $player, callable $onSuccess, ?callable $onError = null)
+	{
+		$this->connector->executeSelect(self::GET, [$player->getName()], $onSuccess, $onError);;
+	}
+
+	/**
+	 * @param IPlayer $player
+	 * @param int $kill
+	 * @param int $death
+	 * @param int $win
+	 * @param int $lose
+	 * @param int $exp
+	 * @param callable|null $onSuccess
+	 * @param callable|null $onError
+	 */
 	public function add(
 		IPlayer $player,
 		int $kill = 0,
@@ -61,16 +81,31 @@ class CorePvP extends TableBase
 		$this->connector->executeSelect(self::GET, [$player->getname(), $kill, $death, $win, $lose, $exp], $onSuccess, $onError);
 	}
 
+	/**
+	 * @param int $limit
+	 * @param callable $onSuccess
+	 * @param callable|null $onError
+	 */
 	public function getRankingByKill(int $limit, callable $onSuccess, ?callable $onError = null): void
 	{
 		$this->connector->executeSelect( self::GET_RANKING_BY_KILL, [$limit], $onSuccess, $onError);
 	}
 
+	/**
+	 * @param int $limit
+	 * @param callable $onSuccess
+	 * @param callable|null $onError
+	 */
 	public function getRankingByWin(int $limit, callable $onSuccess, ?callable $onError = null): void
 	{
 		$this->connector->executeSelect( self::GET_RANKING_BY_WIN, [$limit], $onSuccess, $onError);
 	}
 
+	/**
+	 * @param int $limit
+	 * @param callable $onSuccess
+	 * @param callable|null $onError
+	 */
 	public function getRankingByExp(int $limit, callable $onSuccess, ?callable $onError = null): void
 	{
 		$this->connector->executeSelect( self::GET_RANKING_BY_EXP, [$limit], $onSuccess, $onError);
