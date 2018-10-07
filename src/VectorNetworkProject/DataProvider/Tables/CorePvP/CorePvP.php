@@ -13,14 +13,14 @@ use VectorNetworkProject\DataProvider\Tables\TableBase;
 
 class CorePvP extends TableBase
 {
-	public const INIT = 'userdataprovider.corepvp.init';
-	public const REGISTER = 'userdataprovider.corepvp.register';
-	public const UNREGISTER = 'userdataprovider.corepvp.unregister';
-	public const GET = 'userdataprovider.corepvp.get';
-	public const ADD = 'userdataprovider.corepvp.add';
-	public const GET_RANKING_BY_KILL = 'userdataprovider.corepvp.getrankingbykill';
-	public const GET_RANKING_BY_WIN = 'userdataprovider.corepvp.getrankingbywin';
-	public const GET_RANKING_BY_EXP = 'userdataprovider.corepvp.getrankingbyexp';
+	public const INIT					= 'userdataprovider.corepvp.init';
+	public const REGISTER				= 'userdataprovider.corepvp.register';
+	public const UNREGISTER				= 'userdataprovider.corepvp.unregister';
+	public const GET					= 'userdataprovider.corepvp.get';
+	public const ADD					= 'userdataprovider.corepvp.add';
+	public const GET_RANKING_BY_KILL	= 'userdataprovider.corepvp.getrankingbykill';
+	public const GET_RANKING_BY_WIN		= 'userdataprovider.corepvp.getrankingbywin';
+	public const GET_RANKING_BY_EXP		= 'userdataprovider.corepvp.getrankingbyexp';
 
 	public function init(): void
 	{
