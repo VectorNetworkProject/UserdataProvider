@@ -4,7 +4,7 @@
 データを格納するためのプラグイン  
 ## テーブル
 
-### **accounts**
+### accounts
 
 | Column | Type  | Description |  
 | :----: | :---: | :---------: |
@@ -14,7 +14,7 @@
 　UserdataProviderで基本となる情報を扱うテーブルです。ここに記載されたIDをもとに各テーブルの管理を行います。  
 　sqlite.sql上ではidをメインにやり取りしていますが、デベロッパーが扱う際はラップしたクラス群の関数を使ってください。
 
-### **ffapvp**
+### ffapvp
 
 | Column | Type  | Description |  
 | :----: | :---: | :---------: |
@@ -23,7 +23,7 @@
 | death | int | デス数 |
 | exp | int | EXP |
 
-### **dual**
+### dual
 
 | Column | Type  | Description |
 | :----: | :---: | :---------: |
@@ -32,6 +32,17 @@
 | death | int | デス数 |
 | win | int | 勝利数 |
 | lose | int| 敗北数 |
+
+### corepvp
+
+| Column | Type  | Description |
+| :----: | :---: | :---------: |
+| id | int | プレイヤーと対応するaccountsテーブルのid |
+| kill | int | キル数 |
+| death | int | デス数 |
+| win | int | 勝利数 |
+| lose | int| 敗北数 |
+| exp | int | exp |
 
 ## 使い方
 ```PHP
