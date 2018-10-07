@@ -26,6 +26,8 @@ class Dual extends TableBase
 	}
 
 	/**
+	 * 	プレイヤーを登録します
+	 *
 	 * @param IPlayer $player
 	 * @param callable $onInserted
 	 * @param callable|null $onError
@@ -36,6 +38,8 @@ class Dual extends TableBase
 	}
 
 	/**
+	 * プレイヤーを登録解除します
+	 *
 	 * @param IPlayer $player
 	 * @param callable|null $onSelect
 	 * @param callable|null $onError
@@ -46,6 +50,8 @@ class Dual extends TableBase
 	}
 
 	/**
+	 * プレイヤーの情報を取得します
+	 *
 	 * @param IPlayer $player
 	 * @param callable $onSelect
 	 * @param callable|null $onError
@@ -56,6 +62,8 @@ class Dual extends TableBase
 	}
 
 	/**
+	 * プレイヤーのカウントを増やします
+	 *
 	 * @param IPlayer $player
 	 * @param int $kill
 	 * @param int $death
@@ -70,6 +78,8 @@ class Dual extends TableBase
 	}
 
 	/**
+	 * プレイヤーのキル数を増やします
+	 *
 	 * @param IPlayer $player
 	 * @param int $kill
 	 */
@@ -79,6 +89,8 @@ class Dual extends TableBase
 	}
 
 	/**
+	 * プレイヤーのデス数を増やします
+	 *
 	 * @param IPlayer $player
 	 * @param int $death
 	 */
@@ -88,6 +100,8 @@ class Dual extends TableBase
 	}
 
 	/**
+	 * プレイヤーの勝利数を増やします
+	 *
 	 * @param IPlayer $player
 	 * @param int $win
 	 */
@@ -97,6 +111,8 @@ class Dual extends TableBase
 	}
 
 	/**
+	 * プレイヤーの敗北数を増やします
+	 *
 	 * @param IPlayer $player
 	 * @param int $lose
 	 */
@@ -106,6 +122,8 @@ class Dual extends TableBase
 	}
 
 	/**
+	 * 勝利数のランキングを取得します
+	 *
 	 * @param int $limit
 	 * @param callable $onSelect
 	 * @param callable|null $onError

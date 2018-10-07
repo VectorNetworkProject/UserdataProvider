@@ -146,7 +146,7 @@ FROM dual
 INNER JOIN accounts
 ON dual.id = accounts.id
 limit :limit
-ORDER BY kill DESC;
+ORDER BY win DESC;
 -- #    }
 -- #  }
 -- #}
