@@ -128,7 +128,7 @@ class Dual extends TableBase
 	 * @param callable $onSelect
 	 * @param callable|null $onError
 	 */
-	public function getRanking(int $limit, callable $onSelect, ?callable $onError = null): void
+	public function getRankingByWin(int $limit, callable $onSelect, ?callable $onError = null): void
 	{
 		$this->connector->executeSelect(self::GET_RANKING, [$limit], $onSelect, $onError);
 	}
