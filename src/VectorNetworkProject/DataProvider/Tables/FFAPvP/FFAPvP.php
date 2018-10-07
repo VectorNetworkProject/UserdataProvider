@@ -51,7 +51,8 @@ class FFAPvP extends TableBase
 	}
 
 	/**
-	 * それぞれのカウントを増やします
+	 * プレイヤーのそれぞれのカウントを増やします
+	 *
 	 * @param IPlayer $player
 	 * @param int $kill
 	 * @param int $death
@@ -63,7 +64,8 @@ class FFAPvP extends TableBase
 	}
 
 	/**
-	 * キルカウントを増やします
+	 * プレイヤーのキル数を増やします
+	 *
 	 * @param IPlayer $player
 	 * @param int $kill
 	 */
@@ -73,7 +75,8 @@ class FFAPvP extends TableBase
 	}
 
 	/**
-	 * デスカウントを増やします
+	 * プレイヤーのデス数を増やします
+	 *
 	 * @param IPlayer $player
 	 * @param int $death
 	 */
@@ -83,7 +86,8 @@ class FFAPvP extends TableBase
 	}
 
 	/**
-	 * EXPカウントを増やします
+	 * プレイヤーのEXPを増やします
+	 *
 	 * @param IPlayer $player
 	 * @param int $exp
 	 */

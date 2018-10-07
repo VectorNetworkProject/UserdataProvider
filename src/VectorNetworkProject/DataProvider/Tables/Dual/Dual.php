@@ -62,7 +62,7 @@ class Dual extends TableBase
 	}
 
 	/**
-	 * プレイヤーのカウントを増やします
+	 * プレイヤーのそれぞれのカウントを増やします
 	 *
 	 * @param IPlayer $player
 	 * @param int $kill
