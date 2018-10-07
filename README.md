@@ -1,7 +1,7 @@
 # DataProvider
 [![Build Status](https://scrutinizer-ci.com/g/VectorNetworkProject/DataProvider/badges/build.png?b=master)](https://scrutinizer-ci.com/g/VectorNetworkProject/DataProvider/build-status/master)
 
-データを格納するためのプラグイン  
+　データを格納するためのプラグイン。テーブルの粒度は小さめに！
 ## テーブル
 
 ### accounts
