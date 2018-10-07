@@ -25,7 +25,8 @@ class Main extends PluginBase
 	{
 		$this->saveDefaultConfig();
 		$this->connector = $connector = libasynql::create(
-			$this, $this->getConfig()->get("database"),
+			$this,
+			$this->getConfig()->get("database"),
 			[
 				"sqlite" => "sqlite.sql",
 			]
