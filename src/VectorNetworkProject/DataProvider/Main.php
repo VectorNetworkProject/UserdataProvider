@@ -24,10 +24,13 @@ class Main extends PluginBase
 	public function onEnable()
 	{
 		$this->saveDefaultConfig();
-		$this->connector = $connector = libasynql::create($this, $this->getConfig()->get("database"), [
-			"sqlite" => "sqlite.sql",
-			"mysql" => "mysql.sql"
-		]);
+		$this->connector = $connector = libasynql::create(
+			$this, $this->getConfig()->get("database"),
+			[
+				"sqlite" => "sqlite.sql",
+				"mysql" => "mysql.sql"
+			]
+		);
 		$this->manager = new TableManager($connector);
 	}
 
