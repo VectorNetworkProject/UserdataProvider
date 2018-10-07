@@ -1,5 +1,5 @@
 name: DataProvider
-version: 0.0.1
+version: 0.1.0
 api: 3.2.3
 main: VectorNetworkProject\DataProvider\Main
 prefix: DataProvider
