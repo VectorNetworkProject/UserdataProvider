@@ -51,6 +51,14 @@ IN (
   WHERE accounts.name = :name
 );
 -- #    }
+-- #    { get
+-- #      :name string
+SELECT *
+FROM dual
+INNER JOIN accounts
+ON dual.id = accounts.id
+WHERE accounts.name = :name;
+-- #    }
 -- #    { addcount
 -- #      :name string
 -- #      :kill int
@@ -72,7 +80,7 @@ WHERE id IN (
 -- #    }
 -- #    { getrankingbyExp
 -- #      :limit int
-SELECT accounts.name, accounts.id, ffapvp.kill, ffapvp.death, ffapvp.exp
+SELECT *
 FROM ffapvp
 INNER JOIN accounts
 ON ffapvp.id = accounts.id
@@ -81,7 +89,7 @@ ORDER BY exp DESC;
 -- #    }
 -- #    { getrankingbykill
 -- #      :limit int
-SELECT accounts.name, accounts.id, ffapvp.kill, ffapvp.death, ffapvp.exp
+SELECT *
 FROM ffapvp
 INNER JOIN accounts
 ON ffapvp.id = accounts.id
@@ -139,9 +147,9 @@ WHERE id IN (
   WHERE accounts.name = :name
 );
 -- #    }
--- #    { getranking
+-- #    { getrankingbywin
 -- #      :limit int
-SELECT accounts.name, accounts.id, dual.kill
+SELECT *
 FROM dual
 INNER JOIN accounts
 ON dual.id = accounts.id

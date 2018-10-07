@@ -13,12 +13,13 @@ use VectorNetworkProject\DataProvider\Tables\TableBase;
 
 class FFAPvP extends TableBase
 {
-	public const FFAPVP_INIT = 'userdataprovider.ffapvp.init';
-	public const FFAPVP_REGISTER = 'userdataprovider.ffapvp.register';
-	public const FFAPVP_UNREGISTER = 'userdataprovider.ffapvp.unregister';
-	public const FFAPVP_ADD_COUNT = 'userdataprovider.ffapvp.addcount';
+	public const FFAPVP_INIT 				= 'userdataprovider.ffapvp.init';
+	public const FFAPVP_REGISTER 			= 'userdataprovider.ffapvp.register';
+	public const FFAPVP_UNREGISTER 			= 'userdataprovider.ffapvp.unregister';
+	public const FFAPVP_GET 				= 'userdataprovider.ffapvp.get';
+	public const FFAPVP_ADD_COUNT 			= 'userdataprovider.ffapvp.addcount';
 	public const FFAPVP_GET_RANKING_BY_KILL = 'userdataprovider.ffapvp.getrankingbykill';
-	public const FFAPVP_GET_RANKING_BY_EXP = 'userdataprovider.ffapvp.getrankingbyexp';
+	public const FFAPVP_GET_RANKING_BY_EXP 	= 'userdataprovider.ffapvp.getrankingbyexp';
 
 	public function init(): void
 	{
@@ -48,6 +49,18 @@ class FFAPvP extends TableBase
 	public function unregister(IPLayer $player, ?callable $onSuccess = null, ?callable $onError = null): void
 	{
 		$this->connector->executeChange(self::FFAPVP_UNREGISTER, [$player->getName()], $onSuccess, $onError );
+	}
+
+	/**
+	 * プレイヤーの情報を取得します
+	 *
+	 * @param IPlayer $player
+	 * @param callable|null $onSuccess
+	 * @param callable|null $onError
+	 */
+	public function get(IPlayer $player, callable $onSuccess = null, ?callable $onError = null): void
+	{
+		$this->connector->executeSelect(self::FFAPVP_GET, [$player->getName()], $onSuccess, $onError);
 	}
 
 	/**
