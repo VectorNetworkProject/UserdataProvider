@@ -18,7 +18,7 @@ class Dual extends TableBase
 	public const UNREGISTER = 'userdataprovider.dual.unregister';
 	public const GET = 'userdataprovider.dual.get';
 	public const ADD_COUNT = 'userdataprovider.dual.addcount';
-	public const GET_RANKING = 'userdataprovider.dual.getranking';
+	public const GET_RANKING = 'userdataprovider.dual.getrankingbywin';
 
 	public function init(): void
 	{

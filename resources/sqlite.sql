@@ -20,6 +20,12 @@ INSERT INTO accounts(
 DELETE FROM accounts
 WHERE id = :name;
 -- #    }
+-- #    { get
+-- #      :name string
+SELECT *
+FROM accounts
+WHERE name = :name;
+-- #    }
 -- #  }
 -- #  { ffapvp
 -- #    { init
@@ -53,10 +59,10 @@ IN (
 -- #    }
 -- #    { get
 -- #      :name string
-SELECT *
-FROM dual
+SELECT accounts.id, accounts.name, ffapvp.kill, ffapvp.death, ffapvp.exp
+FROM ffapvp
 INNER JOIN accounts
-ON dual.id = accounts.id
+ON ffapvp.id = accounts.id
 WHERE accounts.name = :name;
 -- #    }
 -- #    { addcount
@@ -80,7 +86,7 @@ WHERE id IN (
 -- #    }
 -- #    { getrankingbyExp
 -- #      :limit int
-SELECT *
+SELECT accounts.id, accounts.name, ffapvp.kill, ffapvp.death, ffapvp.exp
 FROM ffapvp
 INNER JOIN accounts
 ON ffapvp.id = accounts.id
@@ -89,7 +95,7 @@ ORDER BY exp DESC;
 -- #    }
 -- #    { getrankingbykill
 -- #      :limit int
-SELECT *
+SELECT accounts.id, accounts.name, ffapvp.kill, ffapvp.death, ffapvp.exp
 FROM ffapvp
 INNER JOIN accounts
 ON ffapvp.id = accounts.id
@@ -127,6 +133,13 @@ WHERE id IN (
   WHERE accounts.name = :name
 );
 -- #    }
+-- #    { get
+SELECT accounts.id, accounts.name, dual.kill, dual.death, dual.win, dual.lose
+FROM dual
+INNER JOIN accounts
+ON dual.id = accounts.id
+WHERE accounts.name = :name;
+-- #    }
 -- #    { addCount
 -- #      :name string
 -- #      :kill int
@@ -149,7 +162,7 @@ WHERE id IN (
 -- #    }
 -- #    { getrankingbywin
 -- #      :limit int
-SELECT *
+SELECT accounts.id, accounts.name, dual.kill, dual.death, dual.win, dual.lose
 FROM dual
 INNER JOIN accounts
 ON dual.id = accounts.id
