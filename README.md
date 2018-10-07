@@ -5,18 +5,20 @@
 
 ##使い方
 
-    public function onEnable()
-    {
-        $this->accounts = $this->getServer()->getPluginManager()->getPlugin('UserdataProvider')->getManager()->getAccounts();
-    }
-    
-    public funciton onPlayerJoin(PlayerJoinEvent $event)
-    {
-        $this->accounts->get(
-            $event->player,
-            function (array $rows) use($player)
-            {
-                $player->sendMessage("あなたのIDは$raws[0][id]です");
-            }
-        );
-    }
+```PHP
+public function onEnable()
+{
+    $this->accounts = $this->getServer()->getPluginManager()->getPlugin('UserdataProvider')->getManager()->getAccounts();
+}
+
+public funciton onPlayerJoin(PlayerJoinEvent $event)
+{
+    $this->accounts->get(
+        $event->player,
+        function (array $rows) use($player)
+        {
+            $player->sendMessage("あなたのIDは$raws[0][id]です");
+        }
+    );
+}
+``````
