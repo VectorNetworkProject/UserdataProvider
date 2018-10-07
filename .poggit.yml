@@ -1,7 +1,11 @@
 --- # Poggit-CI Manifest. Open the CI at https://poggit.pmmp.io/ci/VectorNetworkProject/UserdataProvider
 branches:
 - master
+- develop
 projects:
   UserdataProvider:
     path: ""
+    libs:
+    - src: poggit/libasynql/libasynql
+      version: ^3.2.0
 ...
