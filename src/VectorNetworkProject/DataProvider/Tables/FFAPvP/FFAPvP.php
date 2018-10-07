@@ -17,7 +17,7 @@ class FFAPvP extends TableBase
 	public const REGISTER				= 'userdataprovider.ffapvp.register';
 	public const UNREGISTER				= 'userdataprovider.ffapvp.unregister';
 	public const GET					= 'userdataprovider.ffapvp.get';
-	public const ADD_COUNT				= 'userdataprovider.ffapvp.addcount';
+	public const ADD_COUNT				= 'userdataprovider.ffapvp.add';
 	public const GET_RANKING_BY_KILL	= 'userdataprovider.ffapvp.getrankingbykill';
 	public const GET_RANKING_BY_EXP		= 'userdataprovider.ffapvp.getrankingbyexp';
 
