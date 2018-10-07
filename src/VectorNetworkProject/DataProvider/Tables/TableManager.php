@@ -9,14 +9,14 @@
 namespace VectorNetworkProject\DataProvider\Tables;
 
 
-use poggit\libasynql\base\DataConnectorImpl;
+use poggit\libasynql\DataConnector;
 use VectorNetworkProject\DataProvider\Tables\Accounts\Accounts;
 use VectorNetworkProject\DataProvider\Tables\Dual\Dual;
 use VectorNetworkProject\DataProvider\Tables\FFAPvP\FFAPvP;
 
 class TableManager
 {
-	/** @var DataConnectorImpl */
+	/** @var DataConnector */
 	protected $connector;
 
 	/** @var Accounts */
@@ -26,7 +26,7 @@ class TableManager
 	/** @var Dual */
 	protected $dual;
 
-	public function __construct(DataConnectorImpl $connector)
+	public function __construct(DataConnector $connector)
 	{
 		$this->connector = $connector;
 		$this->accounts = new Accounts($connector);

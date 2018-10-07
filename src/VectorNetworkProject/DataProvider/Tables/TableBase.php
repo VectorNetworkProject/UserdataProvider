@@ -9,13 +9,13 @@
 namespace VectorNetworkProject\DataProvider\Tables;
 
 
-use poggit\libasynql\base\DataConnectorImpl;
+use poggit\libasynql\DataConnector;
 
 abstract class TableBase
 {
-	/** @var DataConnectorImpl */
+	/** @var DataConnector */
 	protected $connector;
-	public final function __construct(DataConnectorImpl $connector)
+	public final function __construct(DataConnector $connector)
 	{
 		$this->connector = $connector;
 	}
