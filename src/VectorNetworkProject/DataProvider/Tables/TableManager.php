@@ -11,6 +11,7 @@ namespace VectorNetworkProject\DataProvider\Tables;
 
 use poggit\libasynql\DataConnector;
 use VectorNetworkProject\DataProvider\Tables\Accounts\Accounts;
+use VectorNetworkProject\DataProvider\Tables\CorePvP\CorePvP;
 use VectorNetworkProject\DataProvider\Tables\Dual\Dual;
 use VectorNetworkProject\DataProvider\Tables\FFAPvP\FFAPvP;
 
@@ -25,6 +26,8 @@ class TableManager
 	protected $ffapvp;
 	/** @var Dual */
 	protected $dual;
+	/** @var CorePvP */
+	protected $corepvp;
 
 	public function __construct(DataConnector $connector)
 	{
@@ -32,6 +35,7 @@ class TableManager
 		$this->accounts = new Accounts($connector);
 		$this->ffapvp = new FFAPvP($connector);
 		$this->dual = new Dual($connector);
+		$this->corepvp = new CorePvP($connector);
 	}
 
 	/**
@@ -56,5 +60,13 @@ class TableManager
 	public function getDual(): Dual
 	{
 		return $this->dual;
+	}
+
+	/**
+	 * @return CorePvP
+	 */
+	public function getCorePvP(): CorePvP
+	{
+		return $this->corepvp;
 	}
 }
