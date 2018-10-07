@@ -1,6 +1,6 @@
 # DataProvider
 [![Build Status](https://scrutinizer-ci.com/g/VectorNetworkProject/DataProvider/badges/build.png?b=master)](https://scrutinizer-ci.com/g/VectorNetworkProject/DataProvider/build-status/master)
-
+[![](https://poggit.pmmp.io/ci.shield/Pluginproject/VectorNetworkProject/UserdataProvider)](https://poggit.pmmp.io/ci/VectorNetworkProject/UserdataProvider)
 　データを格納するためのプラグイン。テーブルの粒度は小さめに！
 ## テーブル
 
