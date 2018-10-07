@@ -60,5 +60,5 @@ public funciton onPlayerJoin(PlayerJoinEvent $event)
 ```
 
 　クエリの終了時、またはエラー時の際の処理をクロージャで渡してください。   
-　終了時の引数は`array $rows`で結果が`$rows[<順番>][<カラム名>]`で格納されます。エラー時の引数は上記の通り`SqlError $error, ?Ecxeption $trace`となります。`SqlError`については[SqlError](https://github.com/poggit/libasynql/blob/master/libasynql/src/poggit/libasynql/SqlError.php)を参照してください。
-　
+　終了時の引数は`array $rows`で結果が`$rows[<順番>][<カラム名>]`で格納されます。エラー時の引数は上記の通り`SqlError $error, ?Ecxeption $trace`となります。`SqlError`については[SqlError](https://github.com/poggit/libasynql/blob/master/libasynql/src/poggit/libasynql/SqlError.php)を参照してください。  
+　`$raws[<int>]`に格納されているデータは基本的に`accounts`の`name`カラムとそれぞれのテーブルのカラムを複合したものになります。`
