@@ -214,7 +214,7 @@ WHERE      accounts.name = :name;
 -- #      :death int
 -- #      :win int
 -- #      :lose int
--- #      :exp
+-- #      :exp int
 UPDATE corepvp
 SET kill = kill + :kill,
     death = death + :death,
