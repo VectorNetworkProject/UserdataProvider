@@ -13,12 +13,12 @@ use VectorNetworkProject\DataProvider\Tables\TableBase;
 
 class Dual extends TableBase
 {
-	public const INIT = 'userdataprovider.dual.init';
-	public const REGISTER = 'userdataprovider.dual.register';
-	public const UNREGISTER = 'userdataprovider.dual.unregister';
-	public const GET = 'userdataprovider.dual.get';
-	public const ADD_COUNT = 'userdataprovider.dual.addcount';
-	public const GET_RANKING = 'userdataprovider.dual.getrankingbywin';
+	public const INIT			= 'userdataprovider.dual.init';
+	public const REGISTER		= 'userdataprovider.dual.register';
+	public const UNREGISTER		= 'userdataprovider.dual.unregister';
+	public const GET			= 'userdataprovider.dual.get';
+	public const ADD_COUNT		= 'userdataprovider.dual.addcount';
+	public const GET_RANKING	= 'userdataprovider.dual.getrankingbywin';
 
 	public function init(): void
 	{
