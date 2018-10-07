@@ -13,17 +13,17 @@ use VectorNetworkProject\DataProvider\Tables\TableBase;
 
 class FFAPvP extends TableBase
 {
-	public const FFAPVP_INIT 				= 'userdataprovider.ffapvp.init';
-	public const FFAPVP_REGISTER 			= 'userdataprovider.ffapvp.register';
-	public const FFAPVP_UNREGISTER 			= 'userdataprovider.ffapvp.unregister';
-	public const FFAPVP_GET 				= 'userdataprovider.ffapvp.get';
-	public const FFAPVP_ADD_COUNT 			= 'userdataprovider.ffapvp.addcount';
-	public const FFAPVP_GET_RANKING_BY_KILL = 'userdataprovider.ffapvp.getrankingbykill';
-	public const FFAPVP_GET_RANKING_BY_EXP 	= 'userdataprovider.ffapvp.getrankingbyexp';
+	public const INIT 				= 'userdataprovider.ffapvp.init';
+	public const REGISTER 			= 'userdataprovider.ffapvp.register';
+	public const UNREGISTER 			= 'userdataprovider.ffapvp.unregister';
+	public const GET 				= 'userdataprovider.ffapvp.get';
+	public const ADD_COUNT 			= 'userdataprovider.ffapvp.addcount';
+	public const GET_RANKING_BY_KILL = 'userdataprovider.ffapvp.getrankingbykill';
+	public const GET_RANKING_BY_EXP 	= 'userdataprovider.ffapvp.getrankingbyexp';
 
 	public function init(): void
 	{
-		$this->connector->executeGeneric(self::FFAPVP_INIT);
+		$this->connector->executeGeneric(self::INIT);
 	}
 
 	/**
@@ -35,7 +35,7 @@ class FFAPvP extends TableBase
 	 */
 	public function register(IPLayer $player, ?callable $onInserted = null, ?callable $onError = null): void
 	{
-		$this->connector->executeInsert(self::FFAPVP_REGISTER, [$player->getname()], $onInserted, $onError);
+		$this->connector->executeInsert(self::REGISTER, [$player->getname()], $onInserted, $onError);
 
 	}
 
@@ -48,7 +48,7 @@ class FFAPvP extends TableBase
 	 */
 	public function unregister(IPLayer $player, ?callable $onSuccess = null, ?callable $onError = null): void
 	{
-		$this->connector->executeChange(self::FFAPVP_UNREGISTER, [$player->getName()], $onSuccess, $onError );
+		$this->connector->executeChange(self::UNREGISTER, [$player->getName()], $onSuccess, $onError );
 	}
 
 	/**
@@ -60,7 +60,7 @@ class FFAPvP extends TableBase
 	 */
 	public function get(IPlayer $player, callable $onSuccess = null, ?callable $onError = null): void
 	{
-		$this->connector->executeSelect(self::FFAPVP_GET, [$player->getName()], $onSuccess, $onError);
+		$this->connector->executeSelect(self::GET, [$player->getName()], $onSuccess, $onError);
 	}
 
 	/**
@@ -73,7 +73,7 @@ class FFAPvP extends TableBase
 	 */
 	public function add(IPlayer $player, int $kill = 0, int $death = 0, int $exp = 0)
 	{
-		$this->connector->executeChange(self::FFAPVP_ADD_COUNT, [$player->getName(), $kill, $death, $exp]);
+		$this->connector->executeChange(self::ADD_COUNT, [$player->getName(), $kill, $death, $exp]);
 	}
 
 	/**
@@ -118,7 +118,7 @@ class FFAPvP extends TableBase
 	 */
 	public function getRankingByKill(int $limit, ?callable $onSelect = null, ?callable $onError = null): void
 	{
-		$this->connector->executeSelect(self::FFAPVP_GET_RANKING_BY_KILL, [$limit], $onSelect, $onError);
+		$this->connector->executeSelect(self::GET_RANKING_BY_KILL, [$limit], $onSelect, $onError);
 	}
 
 	/**
@@ -130,6 +130,6 @@ class FFAPvP extends TableBase
 	 */
 	public function getRankingByExp(int $limit, ?callable $onSelect = null, ?callable $onError = null): void
 	{
-		$this->connector->executeSelect(self::FFAPVP_GET_RANKING_BY_EXP, [$limit], $onSelect, $onError);
+		$this->connector->executeSelect(self::GET_RANKING_BY_EXP, [$limit], $onSelect, $onError);
 	}
 }
