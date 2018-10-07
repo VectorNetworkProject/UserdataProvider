@@ -4,7 +4,7 @@
 -- #    { init
 CREATE TABLE IF NOT EXISTS accounts(
   id   INTEGER PRIMARY KEY AUTOINCREMENT,
-  name TEXT PRIMARY KEY
+  name TEXT UNIQUE
 );
 -- #    }
 -- #    { register
