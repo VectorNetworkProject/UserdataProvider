@@ -21,8 +21,7 @@ class Main extends PluginBase
 	private $manager;
 	/** @var DataConnector */
 	private $connector;
-	public function onEnable()
-	{
+	public function onEnable() {
 		$this->saveDefaultConfig();
 		$this->connector = $connector = libasynql::create(
 			$this,
@@ -36,7 +35,7 @@ class Main extends PluginBase
 
 	public function onDisable()
 	{
-		if($this->connector !== null)
+		if ($this->connector !== null)
 		{
 			$this->connector->close();
 		}

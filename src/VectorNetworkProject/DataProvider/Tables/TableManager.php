@@ -26,8 +26,7 @@ class TableManager
 	/** @var Dual */
 	protected $dual;
 
-	public function __construct(DataConnector $connector)
-	{
+	public function __construct(DataConnector $connector) {
 		$this->connector = $connector;
 		$this->accounts = new Accounts($connector);
 		$this->ffapvp = new FFAPvP($connector);
