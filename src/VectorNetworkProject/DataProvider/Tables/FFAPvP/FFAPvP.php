@@ -13,11 +13,11 @@ use VectorNetworkProject\DataProvider\Tables\TableBase;
 
 class FFAPvP extends TableBase
 {
-	public const INIT					= 'userdataprovider.ffapvp.init';
-	public const REGISTER				= 'userdataprovider.ffapvp.register';
-	public const UNREGISTER				= 'userdataprovider.ffapvp.unregister';
-	public const GET					= 'userdataprovider.ffapvp.get';
-	public const ADD_COUNT				= 'userdataprovider.ffapvp.addcount';
+	public const INIT = 'userdataprovider.ffapvp.init';
+	public const REGISTER = 'userdataprovider.ffapvp.register';
+	public const UNREGISTER = 'userdataprovider.ffapvp.unregister';
+	public const GET = 'userdataprovider.ffapvp.get';
+	public const ADD_COUNT = 'userdataprovider.ffapvp.addcount';
 	public const GET_RANKING_BY_KILL	= 'userdataprovider.ffapvp.getrankingbykill';
 	public const GET_RANKING_BY_EXP		= 'userdataprovider.ffapvp.getrankingbyexp';
 
@@ -48,7 +48,7 @@ class FFAPvP extends TableBase
 	 */
 	public function unregister(IPLayer $player, ?callable $onSuccess = null, ?callable $onError = null): void
 	{
-		$this->connector->executeChange(self::UNREGISTER, [$player->getName()], $onSuccess, $onError );
+		$this->connector->executeChange(self::UNREGISTER, [$player->getName()], $onSuccess, $onError);
 	}
 
 	/**
@@ -71,8 +71,7 @@ class FFAPvP extends TableBase
 	 * @param int $death
 	 * @param int $exp
 	 */
-	public function add(IPlayer $player, int $kill = 0, int $death = 0, int $exp = 0)
-	{
+	public function add(IPlayer $player, int $kill = 0, int $death = 0, int $exp = 0) {
 		$this->connector->executeChange(self::ADD_COUNT, [$player->getName(), $kill, $death, $exp]);
 	}
 
@@ -82,8 +81,7 @@ class FFAPvP extends TableBase
 	 * @param IPlayer $player
 	 * @param int $kill
 	 */
-	public function addKill(IPlayer $player, int $kill)
-	{
+	public function addKill(IPlayer $player, int $kill) {
 		$this->add($player, $kill);
 	}
 
@@ -93,8 +91,7 @@ class FFAPvP extends TableBase
 	 * @param IPlayer $player
 	 * @param int $death
 	 */
-	public function addDeath(IPlayer $player, int $death)
-	{
+	public function addDeath(IPlayer $player, int $death) {
 		$this->add($player, 0, $death);
 	}
 
@@ -104,7 +101,7 @@ class FFAPvP extends TableBase
 	 * @param IPlayer $player
 	 * @param int $exp
 	 */
-	public function addExp(IPlayer $player,int $exp)
+	public function addExp(IPlayer $player, int $exp)
 	{
 		$this->add($player, 0, 0, $exp);
 	}
