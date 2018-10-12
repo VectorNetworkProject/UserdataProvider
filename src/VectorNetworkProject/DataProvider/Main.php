@@ -37,7 +37,7 @@ class Main extends PluginBase
 
 	public function onDisable()
 	{
-		if($this->connector !== null)
+		if ($this->connector !== null)
 		{
 			$this->connector->close();
 		}

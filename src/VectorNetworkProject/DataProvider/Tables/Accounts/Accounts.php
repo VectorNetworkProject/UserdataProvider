@@ -30,8 +30,7 @@ class Accounts extends TableBase
 	 * @param callable|null $onInserted
 	 * @param callable|null $onError
 	 */
-	public function register(IPlayer $player, ?callable $onInserted = null, ?callable $onError = null)
-	{
+	public function register(IPlayer $player, ?callable $onInserted = null, ?callable $onError = null) {
 		$this->connector->executeInsert(self::ACCOUNT_REGISTER, [$player->getName()], $onInserted, $onError);
 	}
 
@@ -42,8 +41,7 @@ class Accounts extends TableBase
 	 * @param callable|null $onSuccess
 	 * @param callable|null $onError
 	 */
-	public function unregister(IPlayer $player, ?callable $onSuccess = null, ?callable $onError = null)
-	{
+	public function unregister(IPlayer $player, ?callable $onSuccess = null, ?callable $onError = null) {
 		$this->connector->executeChange(self::ACCOUNT_UNREGISTER, [$player->getName()], $onSuccess, $onError);
 	}
 
@@ -54,7 +52,7 @@ class Accounts extends TableBase
 	 * @param callable|null $onSelect
 	 * @param callable|null $onError
 	 */
-	public function get(IPlayer $player, ?callable $onSelect = null, ?callable $onError = null){
+	public function get(IPlayer $player, ?callable $onSelect = null, ?callable $onError = null) {
 		$this->connector->executeSelect(self::ACCOUNT_GET, [$player->getName()], $onSelect, $onError);
 	}
 }
