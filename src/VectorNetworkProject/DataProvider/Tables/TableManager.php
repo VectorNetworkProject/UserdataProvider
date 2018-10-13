@@ -53,6 +53,15 @@ class TableManager
 		$this->corepvp->register($player);
 	}
 
+	public function unregister(IPlayer $player)
+	{
+		$this->networklevel->unregister($player);
+		$this->accounts->unregister($player);
+		$this->ffapvp->unregister($player);
+		$this->dual->unregister($player);
+		$this->corepvp->unregister($player);
+	}
+
 	/**
 	 * @return Accounts
 	 */
