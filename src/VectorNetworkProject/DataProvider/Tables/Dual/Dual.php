@@ -32,7 +32,7 @@ class Dual extends TableBase
 	 * @param callable $onInserted
 	 * @param callable|null $onError
 	 */
-	public function register(IPlayer $player, ?callable $onInserted, ?callable $onError = null): void
+	public function register(IPlayer $player, ?callable $onInserted = null, ?callable $onError = null): void
 	{
 		$this->connector->executeInsert(self::REGISTER, [$player->getName()], $onInserted, $onError);
 	}
