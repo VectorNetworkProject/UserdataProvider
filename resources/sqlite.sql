@@ -66,7 +66,7 @@ WHERE      accounts.name = :name;
 -- #    { add
 -- #      :name string
 -- #      :exp int
-UPDATE ffapvp
+UPDATE networklevel
 SET exp   = exp + :exp
 WHERE id IN (
   SELECT     networklevel.id
