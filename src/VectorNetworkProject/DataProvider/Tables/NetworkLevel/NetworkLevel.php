@@ -62,12 +62,15 @@ class NetworkLevel extends TableBase
 	}
 
 	/**
-	 * プレイヤーのそれぞれのカウントを増やします
+	 * プレイヤーのカウントを増やします
 	 *
 	 * @param IPlayer $player
 	 * @param int $exp
+	 * @param callable|null $onSuccess
+	 * @param callable|null $onError
 	 */
-	public function add(IPlayer $player, int $exp = 0) {
-		$this->connector->executeChange(self::ADD, [$player->getName(), $exp]);
+	public function add(IPlayer $player, int $exp = 0, ?callable $onSuccess = null, ?callable $onError = null): void
+	{
+		$this->connector->executeChange(self::ADD, [$player->getName(), $exp], $onSuccess, $onError);
 	}
 }
