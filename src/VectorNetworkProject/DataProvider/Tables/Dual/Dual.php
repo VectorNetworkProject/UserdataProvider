@@ -32,7 +32,7 @@ class Dual extends TableBase
 	 * @param callable $onInserted
 	 * @param callable|null $onError
 	 */
-	public function register(IPlayer $player, callable $onInserted, ?callable $onError = null): void
+	public function register(IPlayer $player, ?callable $onInserted = null, ?callable $onError = null): void
 	{
 		$this->connector->executeInsert(self::REGISTER, [$player->getName()], $onInserted, $onError);
 	}
@@ -44,7 +44,7 @@ class Dual extends TableBase
 	 * @param callable|null $onSelect
 	 * @param callable|null $onError
 	 */
-	public function unregister(IPlayer $player, ?callable $onSelect, ?callable $onError = null): void
+	public function unregister(IPlayer $player, ?callable $onSelect = null, ?callable $onError = null): void
 	{
 		$this->connector->executeChange(self::REGISTER, [$player->getName()], $onSelect, $onError);
 	}

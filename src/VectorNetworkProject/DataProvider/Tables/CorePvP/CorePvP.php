@@ -32,7 +32,7 @@ class CorePvP extends TableBase
 	 * @param callable|null $onSuccess
 	 * @param callable|null $onError
 	 */
-	public function regsiter(IPlayer $player, ?callable $onSuccess = null, ?callable $onError = null): void
+	public function register(IPlayer $player, ?callable $onSuccess = null, ?callable $onError = null): void
 	{
 		$this->connector->executeInsert(self::REGISTER, [$player->getname()], $onSuccess, $onError);
 	}
@@ -42,7 +42,7 @@ class CorePvP extends TableBase
 	 * @param callable $onSuccess
 	 * @param callable|null $onError
 	 */
-	public function unregister(IPlayer $player, callable $onSuccess, ?callable $onError = null): void
+	public function unregister(IPlayer $player, ?callable $onSuccess = null, ?callable $onError = null): void
 	{
 		$this->connector->executeInsert(self::UNREGISTER, [$player->getname()], $onSuccess, $onError);
 	}

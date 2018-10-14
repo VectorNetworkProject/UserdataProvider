@@ -27,6 +27,58 @@ FROM accounts
 WHERE name = :name;
 -- #    }
 -- #  }
+-- #  { networklevel
+-- #    { init
+CREATE TABLE IF NOT EXISTS networklevel(
+  id    INTEGER NOT NULL,
+  exp   INTEGER NOT NULL DEFAULT 0
+);
+-- #    }
+-- #    { register
+-- #      :name string
+INSERT INTO networklevel(
+  id
+)
+SELECT id
+FROM  accounts
+WHERE name = :name;
+-- #    }
+-- #    { unregister
+-- #      :name string
+DELETE FROM networklevel
+WHERE id
+IN (
+  SELECT     accounts.id
+  FROM       networklevel
+  INNER JOIN accounts
+  ON         networklevel.id = accounts.id
+  WHERE      accounts.name = :name
+);
+-- #    }
+-- #    { get
+-- #      :name string
+SELECT accounts.id, accounts.name, networklevel.exp
+FROM       networklevel
+INNER JOIN accounts
+ON         networklevel.id = accounts.id
+WHERE      accounts.name = :name;
+-- #    }
+-- #    { add
+-- #      :name string
+-- #      :exp int
+UPDATE networklevel
+SET exp   = exp + :exp
+WHERE id IN (
+  SELECT     networklevel.id
+  FROM       networklevel
+  INNER JOIN accounts
+  ON (
+    accounts.id = networklevel.id
+  )
+  WHERE accounts.name = :name
+);
+-- #    }
+-- #  }
 -- #  { ffapvp
 -- #    { init
 CREATE TABLE IF NOT EXISTS ffapvp(
