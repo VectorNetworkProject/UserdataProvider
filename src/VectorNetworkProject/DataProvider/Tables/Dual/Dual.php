@@ -13,12 +13,12 @@ use VectorNetworkProject\DataProvider\Tables\TableBase;
 
 class Dual extends TableBase
 {
-	public const INIT			= 'userdataprovider.dual.init';
-	public const REGISTER		= 'userdataprovider.dual.register';
-	public const UNREGISTER		= 'userdataprovider.dual.unregister';
-	public const GET			= 'userdataprovider.dual.get';
-	public const ADD_COUNT		= 'userdataprovider.dual.addcount';
-	public const GET_RANKING	= 'userdataprovider.dual.getrankingbywin';
+	public const INIT = 'userdataprovider.duel.init';
+	public const REGISTER = 'userdataprovider.duel.register';
+	public const UNREGISTER		= 'userdataprovider.duel.unregister';
+	public const GET = 'userdataprovider.duel.get';
+	public const ADD_COUNT = 'userdataprovider.duel.addcount';
+	public const GET_RANKING	= 'userdataprovider.duel.getrankingbywin';
 
 	public function init(): void
 	{
@@ -32,7 +32,7 @@ class Dual extends TableBase
 	 * @param callable $onInserted
 	 * @param callable|null $onError
 	 */
-	public function register(IPlayer $player, callable $onInserted, ?callable $onError = null): void
+	public function register(IPlayer $player, ?callable $onInserted = null, ?callable $onError = null): void
 	{
 		$this->connector->executeInsert(self::REGISTER, [$player->getName()], $onInserted, $onError);
 	}
@@ -44,7 +44,7 @@ class Dual extends TableBase
 	 * @param callable|null $onSelect
 	 * @param callable|null $onError
 	 */
-	public function unregister(IPlayer $player, ?callable $onSelect, ?callable $onError = null): void
+	public function unregister(IPlayer $player, ?callable $onSelect = null, ?callable $onError = null): void
 	{
 		$this->connector->executeChange(self::REGISTER, [$player->getName()], $onSelect, $onError);
 	}
