@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f1a201c62434bcd86e21bf7fc153f462",
+    "content-hash": "d691b3d28a305404689db1c22bf73e38",
     "packages": [
         {
             "name": "fgrosse/phpasn1",
@@ -197,11 +197,11 @@
         },
         {
             "name": "pocketmine/nbt",
-            "version": "0.2.1",
+            "version": "0.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pmmp/NBT",
-                "reference": "a4ee39f313c6870153fb7c7e513b211217f7daf8"
+                "reference": "474f0cf0a47656d0122b4f3f71302e694ed6977b"
             },
             "require": {
                 "php": ">=7.2.0",
@@ -223,15 +223,15 @@
                 "LGPL-3.0"
             ],
             "description": "PHP library for working with Named Binary Tags",
-            "time": "2018-09-04T10:36:02+00:00"
+            "time": "2018-10-12T08:26:44+00:00"
         },
         {
             "name": "pocketmine/pocketmine-mp",
-            "version": "3.2.3",
+            "version": "3.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pmmp/PocketMine-MP",
-                "reference": "27effff403dddae12e2a85b780852f55cef54695"
+                "reference": "88a5e92c20bca5a0f070ec0e51d849ac86ee8212"
             },
             "require": {
                 "ext-bcmath": "*",
@@ -278,7 +278,7 @@
             ],
             "description": "A server software for Minecraft: Pocket Edition written in PHP",
             "homepage": "https://pmmp.io",
-            "time": "2018-09-11T11:19:56+00:00"
+            "time": "2018-10-16T16:47:35+00:00"
         },
         {
             "name": "pocketmine/raklib",
@@ -337,11 +337,11 @@
         },
         {
             "name": "pocketmine/spl",
-            "version": "0.3.1",
+            "version": "0.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pmmp/SPL",
-                "reference": "ca3912099543ddc4b4b14f40e258d84ca547dfa5"
+                "reference": "7fd53857cd000491ba69e8db865792a024dd2c49"
             },
             "type": "library",
             "autoload": {
@@ -356,7 +356,7 @@
                 "LGPL-3.0"
             ],
             "description": "Standard library files required by PocketMine-MP and related projects",
-            "time": "2018-06-09T17:30:36+00:00"
+            "time": "2018-08-12T15:17:39+00:00"
         }
     ],
     "packages-dev": [],
