@@ -13,11 +13,11 @@ use VectorNetworkProject\DataProvider\Tables\TableBase;
 
 class NetworkLevel extends TableBase
 {
-	public const INiT 		= 'databaseprovider.networklevel.init';
-	public const REGISTER 	= 'databaseprovider.networklevel.register';
-	public const UNREGISTER = 'databaseprovider.networklevel.unregister';
-	public const GET 		= 'databaseprovider.networklevel.get';
-	public const ADD 		= 'databaseprovider.networklevel.add';
+	public const INiT 		= 'userdataprovider.networklevel.init';
+	public const REGISTER 	= 'userdataprovider.networklevel.register';
+	public const UNREGISTER = 'userdataprovider.networklevel.unregister';
+	public const GET 		= 'userdataprovider.networklevel.get';
+	public const ADD 		= 'userdataprovider.networklevel.add';
 
 	public function init(): void
 	{
