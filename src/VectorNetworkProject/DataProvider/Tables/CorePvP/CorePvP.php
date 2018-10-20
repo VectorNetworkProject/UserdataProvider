@@ -34,7 +34,7 @@ class CorePvP extends TableBase
 	 */
 	public function register(IPlayer $player, ?callable $onSuccess = null, ?callable $onError = null): void
 	{
-		$this->connector->executeInsert(self::REGISTER, [$player->getname()], $onSuccess, $onError);
+		$this->connector->executeInsert(self::REGISTER, ['name' => $player->getname()], $onSuccess, $onError);
 	}
 
 	/**
@@ -44,7 +44,7 @@ class CorePvP extends TableBase
 	 */
 	public function unregister(IPlayer $player, ?callable $onSuccess = null, ?callable $onError = null): void
 	{
-		$this->connector->executeInsert(self::UNREGISTER, [$player->getname()], $onSuccess, $onError);
+		$this->connector->executeInsert(self::UNREGISTER, ['name' => $player->getname()], $onSuccess, $onError);
 	}
 
 	/**
@@ -54,7 +54,7 @@ class CorePvP extends TableBase
 	 */
 	public function get(IPlayer $player, callable $onSuccess, ?callable $onError = null)
 	{
-		$this->connector->executeSelect(self::GET, [$player->getName()], $onSuccess, $onError);;
+		$this->connector->executeSelect(self::GET, ['name' => $player->getName()], $onSuccess, $onError);;
 	}
 
 	/**
@@ -78,7 +78,7 @@ class CorePvP extends TableBase
 		?callable $onError = null
 	): void
 	{
-		$this->connector->executeSelect(self::GET, [$player->getname(), $kill, $death, $win, $lose, $exp], $onSuccess, $onError);
+		$this->connector->executeSelect(self::GET, ['name' => $player->getname(), 'kill' => $kill, 'death' => $death, 'win' => $win, 'lose' => $lose, 'exp' => $exp], $onSuccess, $onError);
 	}
 
 	/**
@@ -88,7 +88,7 @@ class CorePvP extends TableBase
 	 */
 	public function getRankingByKill(int $limit, callable $onSuccess, ?callable $onError = null): void
 	{
-		$this->connector->executeSelect( self::GET_RANKING_BY_KILL, [$limit], $onSuccess, $onError);
+		$this->connector->executeSelect( self::GET_RANKING_BY_KILL, ['limit' => $limit], $onSuccess, $onError);
 	}
 
 	/**
@@ -98,7 +98,7 @@ class CorePvP extends TableBase
 	 */
 	public function getRankingByWin(int $limit, callable $onSuccess, ?callable $onError = null): void
 	{
-		$this->connector->executeSelect( self::GET_RANKING_BY_WIN, [$limit], $onSuccess, $onError);
+		$this->connector->executeSelect( self::GET_RANKING_BY_WIN, ['limit' => $limit], $onSuccess, $onError);
 	}
 
 	/**
@@ -108,6 +108,6 @@ class CorePvP extends TableBase
 	 */
 	public function getRankingByExp(int $limit, callable $onSuccess, ?callable $onError = null): void
 	{
-		$this->connector->executeSelect( self::GET_RANKING_BY_EXP, [$limit], $onSuccess, $onError);
+		$this->connector->executeSelect( self::GET_RANKING_BY_EXP, ['limit' => $limit], $onSuccess, $onError);
 	}
 }

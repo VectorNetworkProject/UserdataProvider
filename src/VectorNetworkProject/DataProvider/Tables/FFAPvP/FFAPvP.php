@@ -35,7 +35,7 @@ class FFAPvP extends TableBase
 	 */
 	public function register(IPLayer $player, ?callable $onInserted = null, ?callable $onError = null): void
 	{
-		$this->connector->executeInsert(self::REGISTER, [$player->getname()], $onInserted, $onError);
+		$this->connector->executeInsert(self::REGISTER, ['name' => $player->getname()], $onInserted, $onError);
 
 	}
 
@@ -48,7 +48,7 @@ class FFAPvP extends TableBase
 	 */
 	public function unregister(IPLayer $player, ?callable $onSuccess = null, ?callable $onError = null): void
 	{
-		$this->connector->executeChange(self::UNREGISTER, [$player->getName()], $onSuccess, $onError);
+		$this->connector->executeChange(self::UNREGISTER, ['name' => $player->getName()], $onSuccess, $onError);
 	}
 
 	/**
@@ -60,7 +60,7 @@ class FFAPvP extends TableBase
 	 */
 	public function get(IPlayer $player, callable $onSuccess = null, ?callable $onError = null): void
 	{
-		$this->connector->executeSelect(self::GET, [$player->getName()], $onSuccess, $onError);
+		$this->connector->executeSelect(self::GET, ['name' => $player->getName()], $onSuccess, $onError);
 	}
 
 	/**
@@ -72,7 +72,7 @@ class FFAPvP extends TableBase
 	 * @param int $exp
 	 */
 	public function add(IPlayer $player, int $kill = 0, int $death = 0, int $exp = 0) {
-		$this->connector->executeChange(self::ADD_COUNT, [$player->getName(), $kill, $death, $exp]);
+		$this->connector->executeChange(self::ADD_COUNT, ['name' => $player->getName(), 'kill' => $kill, 'death' => $death, 'exp' => $exp]);
 	}
 
 	/**
@@ -115,7 +115,7 @@ class FFAPvP extends TableBase
 	 */
 	public function getRankingByKill(int $limit, ?callable $onSelect = null, ?callable $onError = null): void
 	{
-		$this->connector->executeSelect(self::GET_RANKING_BY_KILL, [$limit], $onSelect, $onError);
+		$this->connector->executeSelect(self::GET_RANKING_BY_KILL, ['limit' => $limit], $onSelect, $onError);
 	}
 
 	/**
@@ -127,6 +127,6 @@ class FFAPvP extends TableBase
 	 */
 	public function getRankingByExp(int $limit, ?callable $onSelect = null, ?callable $onError = null): void
 	{
-		$this->connector->executeSelect(self::GET_RANKING_BY_EXP, [$limit], $onSelect, $onError);
+		$this->connector->executeSelect(self::GET_RANKING_BY_EXP, ['limit' => $limit], $onSelect, $onError);
 	}
 }
