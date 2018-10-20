@@ -71,6 +71,6 @@ class NetworkLevel extends TableBase
 	 */
 	public function add(IPlayer $player, int $exp = 0, ?callable $onSuccess = null, ?callable $onError = null): void
 	{
-		$this->connector->executeChange(self::ADD, ['name' => $player->getName(), $exp], $onSuccess, $onError);
+		$this->connector->executeChange(self::ADD, ['name' => $player->getName(), 'exp' => $exp], $onSuccess, $onError);
 	}
 }
