@@ -34,7 +34,7 @@ class Dual extends TableBase
 	 */
 	public function register(IPlayer $player, ?callable $onInserted = null, ?callable $onError = null): void
 	{
-		$this->connector->executeInsert(self::REGISTER, [$player->getName()], $onInserted, $onError);
+		$this->connector->executeInsert(self::REGISTER, ['name' => $player->getName()], $onInserted, $onError);
 	}
 
 	/**
@@ -46,7 +46,7 @@ class Dual extends TableBase
 	 */
 	public function unregister(IPlayer $player, ?callable $onSelect = null, ?callable $onError = null): void
 	{
-		$this->connector->executeChange(self::REGISTER, [$player->getName()], $onSelect, $onError);
+		$this->connector->executeChange(self::REGISTER, ['name' => $player->getName()], $onSelect, $onError);
 	}
 
 	/**
@@ -58,7 +58,7 @@ class Dual extends TableBase
 	 */
 	public function get(IPlayer $player, callable $onSelect, ?callable $onError = null): void
 	{
-		$this->connector->executeSelect(self::GET, [$player->getName()], $onSelect, $onError);
+		$this->connector->executeSelect(self::GET, ['name' => $player->getName()], $onSelect, $onError);
 	}
 
 	/**
@@ -74,7 +74,7 @@ class Dual extends TableBase
 	 */
 	public function add(IPlayer $player, int $kill = 0, int $death = 0, int $win = 0, int $lose = 0, ?callable $onSelect = null, ?callable $onError = null): void
 	{
-		$this->connector->executeChange(self::ADD_COUNT, [$player->getName(), $kill, $death, $win, $lose], $onSelect, $onError);
+		$this->connector->executeChange(self::ADD_COUNT, ['name' => $player->getName(), 'kill' => $kill, 'death' => $death, 'win' => $win, 'lose' => $lose], $onSelect, $onError);
 	}
 
 	/**
@@ -130,6 +130,6 @@ class Dual extends TableBase
 	 */
 	public function getRankingByWin(int $limit, callable $onSelect, ?callable $onError = null): void
 	{
-		$this->connector->executeSelect(self::GET_RANKING, [$limit], $onSelect, $onError);
+		$this->connector->executeSelect(self::GET_RANKING, ['limit' => $limit], $onSelect, $onError);
 	}
 }

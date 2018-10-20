@@ -13,11 +13,11 @@ use VectorNetworkProject\DataProvider\Tables\TableBase;
 
 class NetworkLevel extends TableBase
 {
-	public const INiT 		= 'databaseprovider.networklevel.init';
-	public const REGISTER 	= 'databaseprovider.networklevel.register';
-	public const UNREGISTER = 'databaseprovider.networklevel.unregister';
-	public const GET 		= 'databaseprovider.networklevel.get';
-	public const ADD 		= 'databaseprovider.networklevel.add';
+	public const INiT 		= 'userdataprovider.networklevel.init';
+	public const REGISTER 	= 'userdataprovider.networklevel.register';
+	public const UNREGISTER = 'userdataprovider.networklevel.unregister';
+	public const GET 		= 'userdataprovider.networklevel.get';
+	public const ADD 		= 'userdataprovider.networklevel.add';
 
 	public function init(): void
 	{
@@ -33,7 +33,7 @@ class NetworkLevel extends TableBase
 	 */
 	public function register(IPLayer $player, ?callable $onInserted = null, ?callable $onError = null): void
 	{
-		$this->connector->executeInsert(self::REGISTER, [$player->getname()], $onInserted, $onError);
+		$this->connector->executeInsert(self::REGISTER, ['name' => $player->getName()], $onInserted, $onError);
 
 	}
 
@@ -46,7 +46,7 @@ class NetworkLevel extends TableBase
 	 */
 	public function unregister(IPLayer $player, ?callable $onSuccess = null, ?callable $onError = null): void
 	{
-		$this->connector->executeChange(self::UNREGISTER, [$player->getName()], $onSuccess, $onError);
+		$this->connector->executeChange(self::UNREGISTER, ['name' => $player->getName()], $onSuccess, $onError);
 	}
 
 	/**
@@ -58,7 +58,7 @@ class NetworkLevel extends TableBase
 	 */
 	public function get(IPlayer $player, callable $onSuccess = null, ?callable $onError = null): void
 	{
-		$this->connector->executeSelect(self::GET, [$player->getName()], $onSuccess, $onError);
+		$this->connector->executeSelect(self::GET, ['name' => $player->getName()], $onSuccess, $onError);
 	}
 
 	/**
@@ -71,6 +71,6 @@ class NetworkLevel extends TableBase
 	 */
 	public function add(IPlayer $player, int $exp = 0, ?callable $onSuccess = null, ?callable $onError = null): void
 	{
-		$this->connector->executeChange(self::ADD, [$player->getName(), $exp], $onSuccess, $onError);
+		$this->connector->executeChange(self::ADD, ['name' => $player->getName(), 'exp' => $exp], $onSuccess, $onError);
 	}
 }
